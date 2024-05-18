@@ -1,0 +1,11 @@
+/*
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+*/
+
+/* File overwrote for use with Tailwind from the Tailwind CSS website */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* App.css was deleted too */
