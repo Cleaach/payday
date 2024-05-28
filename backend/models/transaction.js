@@ -13,6 +13,14 @@ const transactionSchema = mongoose.Schema(
         description: {
             type: String,
             required: false
+        },
+        user: {
+            type: String,
+            required: false
+        },
+        date: {
+            type: Date,
+            required: true
         }
     },
     {

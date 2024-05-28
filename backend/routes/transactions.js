@@ -13,7 +13,9 @@ router.post('/', async (request, response) => {
         const newTransaction = {
             amount: request.body.amount,
             category: request.body.category,
-            description: request.body.description
+            description: request.body.description,
+            user: "Clement",
+            date: request.body.date
         }
 
         // Create the transaction object using the .create() method

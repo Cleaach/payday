@@ -77,7 +77,7 @@
           <tbody>
             {transactions.map((transaction, index) => (<tr key={transaction._id} className='h-8'>
               <td className='border border-slate-700 rounded-md text-center'>{index + 1}</td>
-              <td className='border border-slate-700 rounded-md text-center max-md:hidden'>{new Date(transaction.createdAt).toLocaleDateString('en-UK', { day: '2-digit', month: 'short' })}</td>
+              <td className='border border-slate-700 rounded-md text-center max-md:hidden'>{new Date(transaction.date).toLocaleDateString('en-UK',{day: 'numeric', month: 'long'})}</td>
               <td className='border border-slate-700 rounded-md text-center max-md:hidden'>{transaction.description}</td>
               <td className='border border-slate-700 rounded-md text-center max-md:hidden'>{transaction.category}</td>
               <td className='border border-slate-700 rounded-md text-center max-md:hidden'>{transaction.amount}</td>

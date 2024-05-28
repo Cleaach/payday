@@ -7,12 +7,17 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 const EditTransaction = () => {
 
+    const currentDate = new Date();
+    const oneDayAgo = new Date(currentDate); oneDayAgo.setDate(currentDate.getDate() - 1);
+    const twoDaysAgo = new Date(currentDate); twoDaysAgo.setDate(currentDate.getDate() - 2);  
+  
     const [amount, setAmount] = useState('');
     const [category, setCategory] = useState('');
     const [description, setDescription] = useState('');
     const [loading, setLoading] = useState(false);
     const [newCategoryName, setNewCategoryName] = useState('');
-    
+    const [transactionDate, setTransactionDate] = useState([]);
+
     const navigate = useNavigate();
     const {id} = useParams();
     useEffect(() => {
@@ -23,6 +28,7 @@ const EditTransaction = () => {
           setAmount(response.data.amount);
           setCategory(response.data.category);
           setDescription(response.data.description);
+          setTransactionDate(response.data.date);
           setLoading(false);
         })
         .catch((error) => {
@@ -60,6 +66,8 @@ const EditTransaction = () => {
             amount,
             category: category === 'createCategory' ? newCategoryName : category,
             description,
+            date: transactionDate,
+            user: "Clement"
         };
         setLoading(true);
         axios
@@ -84,6 +92,20 @@ const EditTransaction = () => {
             <div className='my-4'>
                 <label className='text-xl mr-4 text-gray-500'>Amount (required)</label>
                 <input type='text' value={amount} onChange={(e) => setAmount(e.target.value)} className='border-2 border-gray-500 px-4 py-2 w-full' />
+            </div>
+            <div className='my-4'>
+                <label className='text-xl mr-4 text-gray-500'>Date (required)</label>
+                
+                <div className='my-2 flex'> 
+                    <input type='date' value={transactionDate} onChange={(e) => {setTransactionDate(e.target.value);}} className='border-2 border-gray-500 px-4 py-2 w-full' />
+                </div>
+
+                <div className='my-2 flex'>
+                    <button className={transactionDate === twoDaysAgo.toISOString().split('T')[0] ? "bg-sky-800 text-white mx-1 px-4 py-2 w-full" : "bg-sky-100 text-black mx-1 px-4 py-2 w-full"} onClick={() => setTransactionDate(twoDaysAgo.toISOString().split('T')[0])}> {twoDaysAgo.toLocaleDateString('en-US', {weekday: 'long'})} </button>
+                    <button className={transactionDate === oneDayAgo.toISOString().split('T')[0] ? "bg-sky-800 text-white mx-1 px-4 py-2 w-full" : "bg-sky-100 text-black mx-1 px-4 py-2 w-full"} onClick={() => setTransactionDate(oneDayAgo.toISOString().split('T')[0])}> Yesterday </button>
+                    <button className={transactionDate === currentDate.toISOString().split('T')[0] ? "bg-sky-800 text-white mx-1 px-4 py-2 w-full" : "bg-sky-100 text-black mx-1 px-4 py-2 w-full"} onClick={() => setTransactionDate(currentDate.toISOString().split('T')[0])}> Today </button>
+                </div>
+
             </div>
             <div className='my-4'>
                 <label className='text-xl mr-4 text-gray-500'>Category</label>
