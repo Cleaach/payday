@@ -93,4 +93,4 @@ React Router
 React Icons
 Tailwind CSS
 Contact
-For any inquiries or issues, please contact [your-email@example.com].
+For any inquiries or issues, please contact [clementaditya@gmail.com].
