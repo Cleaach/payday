@@ -1,4 +1,4 @@
-# Payday
+# PayDay
 ## A full-stack transaction management web application
 This project is a simple transaction management system built with React. It allows users to view, create, edit, and delete transactions, providing insights into their cash flow.
 
