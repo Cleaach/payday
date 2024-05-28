@@ -6,19 +6,15 @@ This project is a simple transaction management system built with React. It allo
 * Display a list of transactions.
 * Show total and monthly cash flow.
 * Add new transactions.
-* Edit existing transactions.
+* Edit existing transactions and their details.
 * Delete transactions.
 * View transaction details.
   
 ## Technologies Used
-* React
-* Axios
-* React Router
-* React Icons
-* CSS (Tailwind for styling)
+MongoDB, Mongoose, Axios, ExpressJS, React, Node.js, Vite
   
 ## Installation
-Will update soon.
+With all dependencies installed, navigate to both folders under this repository and run `npm run dev` in the command-line.
 
 ## Key features:
 * Fetch transactions from the backend.
