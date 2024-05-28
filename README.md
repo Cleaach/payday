@@ -14,7 +14,7 @@ This project is a simple transaction management system built with React. It allo
 MongoDB, Mongoose, Axios, ExpressJS, React, Node.js, Vite
   
 ## Installation
-With all dependencies installed, navigate to both folders under this repository and run `npm run dev` in the command-line.
+After downloading the source code, run `npm install` followed by `npm run dev` in the command-line in both the folders under this repository. The web app will run at the address `http://localhost:5000`.
 
 ## Key features:
 * Fetch transactions from the backend.
